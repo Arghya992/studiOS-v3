@@ -1,51 +1,63 @@
-@import "tailwindcss" source(none);
-@source "../src";
+@import "tailwindcss";
 @import "tw-animate-css";
 
+/* 1. Define custom variants and sources */
+@source "../src";
 @custom-variant dark (&:is(.dark *));
 
-@theme inline {
+@theme {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   --radius-2xl: calc(var(--radius) + 8px);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
+
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
+
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-primary-glow: var(--primary-glow);
+
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
+
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
+
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
+
   --color-success: var(--success);
   --color-warning: var(--warning);
+
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+
   --color-glass: var(--glass);
   --color-glass-border: var(--glass-border);
 }
 
 :root {
   --radius: 1rem;
-  /* Force dark — StudiOS is dark-mode only */
+  /* StudiOS Dark Mode Theme */
   --background: oklch(0.13 0.04 280);
   --foreground: oklch(0.97 0.01 280);
   --card: oklch(0.18 0.05 275);
   --card-foreground: oklch(0.97 0.01 280);
   --popover: oklch(0.18 0.05 275);
   --popover-foreground: oklch(0.97 0.01 280);
-  --primary: oklch(0.55 0.24 280);          /* deep indigo #4f46e5 */
+  --primary: oklch(0.55 0.24 280);
   --primary-foreground: oklch(0.98 0.01 280);
   --primary-glow: oklch(0.7 0.22 290);
   --secondary: oklch(0.25 0.04 275);
@@ -74,8 +86,11 @@
 }
 
 @layer base {
-  * { border-color: var(--color-border); }
-  html, body { background-color: var(--color-background); color: var(--color-foreground); }
+  * { border-color: var(--border); }
+  html, body { 
+    background-color: var(--background); 
+    color: var(--foreground); 
+  }
   body {
     background-image: var(--gradient-mesh);
     background-attachment: fixed;
@@ -97,11 +112,11 @@
 }
 
 @keyframes shake {
-  0%,100%{transform:translateX(0)}
-  20%{transform:translateX(-8px)}
-  40%{transform:translateX(8px)}
-  60%{transform:translateX(-6px)}
-  80%{transform:translateX(6px)}
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-6px); }
+  80% { transform: translateX(6px); }
 }
 
 @layer utilities {
